@@ -1,29 +1,16 @@
-import {Dropdown, InputGroup, Form} from "react-bootstrap";
+import React, {useState} from "react";
+import { InputGroup, Form} from "react-bootstrap";
+import Dropdown from "./Dropdown";
 
 const FilterBar = () => {
-
+    const [selected, setSelected] = useState("");
 
   return (
-    <div>
+    <div className="FilterBar">
         <div className="row d-flex align-items-center justify-content-center">
 
           <div className="col-4">
-              <Dropdown>
-                  <Dropdown.Toggle variant="white" id="dropdown-basic">
-                      Все товары
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Диваны </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Кресла</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Стулья</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Кровати</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Матрацы</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Пуфы</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Эксклюзивная мебель</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">2D-3D модели</Dropdown.Item>
-                  </Dropdown.Menu>
-              </Dropdown>
+            <Dropdown selected={selected} setSelected={setSelected} />
           </div>
 
 
@@ -50,7 +37,7 @@ const FilterBar = () => {
 
           </div>
 
-          <div className="col-4 d-flex align-items-center justify-content-center">
+          <div className="col-4 d-flex align-items-center justify-content-center searchbar">
               <InputGroup className="">
                   <Form.Control
                       placeholder="Поиск"
